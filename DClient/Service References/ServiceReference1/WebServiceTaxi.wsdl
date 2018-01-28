@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="RegistrateDriver">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="driver" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="authorization" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrateDriverResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrateDriverResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="authorization" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrateCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrateCustomerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authorize">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authorization" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthorizeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AuthorizeResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListOfOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idClient" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="role" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListOfOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListOfOrdersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idDriver" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="idOrder" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idClient" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancellationOfOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idClient" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="idOrder" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancellationOfOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="StartTrip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idDriver" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="idOrder" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartTripResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="FinishTrip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idDriver" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="idOrder" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinishTripResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegistrateDriverSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrateDriver" />
+  </wsdl:message>
+  <wsdl:message name="RegistrateDriverSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrateDriverResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="RegistrateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthorizeSoapIn">
+    <wsdl:part name="parameters" element="tns:Authorize" />
+  </wsdl:message>
+  <wsdl:message name="AuthorizeSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthorizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListOfOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListOfOrders" />
+  </wsdl:message>
+  <wsdl:message name="GetListOfOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListOfOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOrder" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowOrder" />
+  </wsdl:message>
+  <wsdl:message name="ShowOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancellationOfOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CancellationOfOrder" />
+  </wsdl:message>
+  <wsdl:message name="CancellationOfOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CancellationOfOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartTripSoapIn">
+    <wsdl:part name="parameters" element="tns:StartTrip" />
+  </wsdl:message>
+  <wsdl:message name="StartTripSoapOut">
+    <wsdl:part name="parameters" element="tns:StartTripResponse" />
+  </wsdl:message>
+  <wsdl:message name="FinishTripSoapIn">
+    <wsdl:part name="parameters" element="tns:FinishTrip" />
+  </wsdl:message>
+  <wsdl:message name="FinishTripSoapOut">
+    <wsdl:part name="parameters" element="tns:FinishTripResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceTaxiSoap">
+    <wsdl:operation name="RegistrateDriver">
+      <wsdl:input message="tns:RegistrateDriverSoapIn" />
+      <wsdl:output message="tns:RegistrateDriverSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrateCustomer">
+      <wsdl:input message="tns:RegistrateCustomerSoapIn" />
+      <wsdl:output message="tns:RegistrateCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authorize">
+      <wsdl:input message="tns:AuthorizeSoapIn" />
+      <wsdl:output message="tns:AuthorizeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfOrders">
+      <wsdl:input message="tns:GetListOfOrdersSoapIn" />
+      <wsdl:output message="tns:GetListOfOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <wsdl:input message="tns:GetOrderSoapIn" />
+      <wsdl:output message="tns:GetOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <wsdl:input message="tns:CreateOrderSoapIn" />
+      <wsdl:output message="tns:CreateOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowOrder">
+      <wsdl:input message="tns:ShowOrderSoapIn" />
+      <wsdl:output message="tns:ShowOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancellationOfOrder">
+      <wsdl:input message="tns:CancellationOfOrderSoapIn" />
+      <wsdl:output message="tns:CancellationOfOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrip">
+      <wsdl:input message="tns:StartTripSoapIn" />
+      <wsdl:output message="tns:StartTripSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FinishTrip">
+      <wsdl:input message="tns:FinishTripSoapIn" />
+      <wsdl:output message="tns:FinishTripSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceTaxiSoap" type="tns:WebServiceTaxiSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistrateDriver">
+      <soap:operation soapAction="http://tempuri.org/RegistrateDriver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrateCustomer">
+      <soap:operation soapAction="http://tempuri.org/RegistrateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authorize">
+      <soap:operation soapAction="http://tempuri.org/Authorize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfOrders">
+      <soap:operation soapAction="http://tempuri.org/GetListOfOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <soap:operation soapAction="http://tempuri.org/GetOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <soap:operation soapAction="http://tempuri.org/CreateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowOrder">
+      <soap:operation soapAction="http://tempuri.org/ShowOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancellationOfOrder">
+      <soap:operation soapAction="http://tempuri.org/CancellationOfOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrip">
+      <soap:operation soapAction="http://tempuri.org/StartTrip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishTrip">
+      <soap:operation soapAction="http://tempuri.org/FinishTrip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceTaxiSoap12" type="tns:WebServiceTaxiSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistrateDriver">
+      <soap12:operation soapAction="http://tempuri.org/RegistrateDriver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrateCustomer">
+      <soap12:operation soapAction="http://tempuri.org/RegistrateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authorize">
+      <soap12:operation soapAction="http://tempuri.org/Authorize" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfOrders">
+      <soap12:operation soapAction="http://tempuri.org/GetListOfOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <soap12:operation soapAction="http://tempuri.org/GetOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <soap12:operation soapAction="http://tempuri.org/CreateOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowOrder">
+      <soap12:operation soapAction="http://tempuri.org/ShowOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancellationOfOrder">
+      <soap12:operation soapAction="http://tempuri.org/CancellationOfOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrip">
+      <soap12:operation soapAction="http://tempuri.org/StartTrip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishTrip">
+      <soap12:operation soapAction="http://tempuri.org/FinishTrip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceTaxi">
+    <wsdl:port name="WebServiceTaxiSoap" binding="tns:WebServiceTaxiSoap">
+      <soap:address location="http://localhost:64007/WebServiceTaxi.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceTaxiSoap12" binding="tns:WebServiceTaxiSoap12">
+      <soap12:address location="http://localhost:64007/WebServiceTaxi.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
