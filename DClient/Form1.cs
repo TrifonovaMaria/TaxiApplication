@@ -19,6 +19,7 @@ namespace DClient
         ServiceReference1.WebServiceTaxiSoapClient Сlient;
         public Form1()
         {
+            InitializeComponent();
             Сlient = new ServiceReference1.WebServiceTaxiSoapClient();
         }
 
