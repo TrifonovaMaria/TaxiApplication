@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:64007/WebServiceTaxi.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:53074/WebServiceTaxi.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WebServiceTaxi.wsdl" MetadataType="Wsdl" ID="feabcc44-3f48-4fa1-ac26-3ecfb3f9fda0" SourceId="1" SourceUrl="http://localhost:64007/WebServiceTaxi.asmx?wsdl" />
-    <MetadataFile FileName="WebServiceTaxi.disco" MetadataType="Disco" ID="62c07b44-25ab-4b54-a992-365bcf3c46fc" SourceId="1" SourceUrl="http://localhost:64007/WebServiceTaxi.asmx?disco" />
+    <MetadataFile FileName="WebServiceTaxi.wsdl" MetadataType="Wsdl" ID="e1b5c0f0-38b4-4a99-846b-cd19a8e8254c" SourceId="1" SourceUrl="http://localhost:53074/WebServiceTaxi.asmx?wsdl" />
+    <MetadataFile FileName="WebServiceTaxi.disco" MetadataType="Disco" ID="6bb4f6ed-f049-4c33-9e3f-9c95b0930a45" SourceId="1" SourceUrl="http://localhost:53074/WebServiceTaxi.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

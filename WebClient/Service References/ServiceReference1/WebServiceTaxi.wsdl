@@ -429,10 +429,10 @@
   </wsdl:binding>
   <wsdl:service name="WebServiceTaxi">
     <wsdl:port name="WebServiceTaxiSoap" binding="tns:WebServiceTaxiSoap">
-      <soap:address location="http://localhost:64007/WebServiceTaxi.asmx" />
+      <soap:address location="http://localhost:53074/WebServiceTaxi.asmx" />
     </wsdl:port>
     <wsdl:port name="WebServiceTaxiSoap12" binding="tns:WebServiceTaxiSoap12">
-      <soap12:address location="http://localhost:64007/WebServiceTaxi.asmx" />
+      <soap12:address location="http://localhost:53074/WebServiceTaxi.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
