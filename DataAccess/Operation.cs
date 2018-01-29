@@ -14,9 +14,10 @@ namespace DataAccess
         private static ModelsTaxi db = new ModelsTaxi();
         public static void RegistrateDriver(Driver driver, Authorization authorization)
         {
-            driver.ID = authorization.ID = Guid.NewGuid();
-            db.Driver.Add(driver);
+            driver.ID = Guid.NewGuid();
+            authorization.ID = driver.ID_Auth = Guid.NewGuid();
             db.Authorization.Add(authorization);
+            db.Driver.Add(driver);
             db.SaveChanges();
         }
 
@@ -130,7 +131,7 @@ namespace DataAccess
             }
         }
 
-        public static void FinishTrip(Guid idDriver, Guid idOrder) //Завуршить поездку от водителя
+        public static void FinishTrip(Guid idDriver, Guid idOrder) //Завершить поездку от водителя
         {
             Driver driver = db.Driver.FirstOrDefault(cl => cl.ID == idDriver);
             Order order = db.Order.FirstOrDefault(o => o.ID == idOrder);

@@ -33,6 +33,11 @@ namespace DataModels
         [Required]
         [StringLength(50)]
         public string Status { get; set; }
+        // 1 - Без водителя
+        // 2 - Текущий, выбранный водителем
+        // 3 - Отмененный заказчиком (если отменяет водитель, то статус становится 1)
+        // 4 - Начатый (поездка началась)
+        // 5 - Завершенный
 
         public Guid? ID_Driver { get; set; }
 
