@@ -8,6 +8,8 @@ namespace DClient
 {
     static class Program
     {
+        public static Guid userID;
+
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

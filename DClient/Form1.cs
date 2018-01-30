@@ -45,7 +45,16 @@ namespace DClient
 
         private void buttonEnter_Click(object sender, EventArgs e)
         {
-
+            var au = new Authorization()
+            {
+                Login = textBoxLogin.Text,
+                Password = textBoxPassword.Text
+                
+            };
+            Program.userID = Сlient.Authorize(Parser.ParseAuth(au));
+            if (Program.userID == Guid.Empty)
+                MessageBox.Show("Логин или пароль введены неправильно.");
         }
+        
     }
 }

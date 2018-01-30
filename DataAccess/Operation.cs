@@ -12,28 +12,35 @@ namespace DataAccess
     public static class Operation
     {
         private static ModelsTaxi db = new ModelsTaxi();
-        public static void RegistrateDriver(Driver driver, Authorization authorization)
+        public static bool RegistrateDriver(Driver driver, Authorization authorization)// Добавить проверку на используемый логин
         {
+            if (db.Authorization.Count(a => a.Login == authorization.Login) != 0)
+                return false;
             driver.ID = Guid.NewGuid();
             authorization.ID = driver.ID_Auth = Guid.NewGuid();
             db.Authorization.Add(authorization);
             db.Driver.Add(driver);
             db.SaveChanges();
+            return true;
         }
 
-        public static void RegistrateCustomer(Customer customer, Authorization authorization)
+        public static bool RegistrateCustomer(Customer customer, Authorization authorization)// Добавить проверку на используемый логин
         {
             try
             {
+                if (db.Authorization.Count(a => a.Login == authorization.Login) != 0)
+                    return false;
                 customer.ID = Guid.NewGuid();
                 customer.ID_Auth = authorization.ID = Guid.NewGuid();
                 db.Authorization.Add(authorization);
                 db.Customer.Add(customer);
                 db.SaveChanges();
+                return true;
             }
             catch(System.Exception e)
             {
                 var s = e.Message;
+                return false;
             }
         }
 
