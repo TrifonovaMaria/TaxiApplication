@@ -14,10 +14,10 @@ using DataModels;
 
 namespace DClient
 {
-    public partial class Form1 : Form
+    public partial class FormEnter : Form
     {
         ServiceReference1.WebServiceTaxiSoapClient Сlient;
-        public Form1()
+        public FormEnter()
         {
             InitializeComponent();
             Сlient = new ServiceReference1.WebServiceTaxiSoapClient();
@@ -25,27 +25,24 @@ namespace DClient
 
         private void buttonReg_Click(object sender, EventArgs e)
         {
-            var au = new Authorization()
-            {
-                Login = "111",
-                Password = "222",
-                Role = 2
-            };
-
-            var cust = new Customer()
-            {
-                FirstName = "Оля",
-                LastName = "Петрова",
-                Phone = "123123"
-            };
-
-            Сlient.RegistrateCustomer(Parser.ParseCustomer(cust), Parser.ParseAuth(au));
+            Program.formRegistrate.Show();
+            Hide();
 
         }
 
         private void buttonEnter_Click(object sender, EventArgs e)
         {
+            var au = new Authorization()
+            {
+                Login = textBoxLogin.Text,
+                Password = textBoxPassword.Text,
+                Role = 1
+            };
 
+            Program.userID = Сlient.Authorize(Parser.ParseAuth(au));
+            if (Program.userID == Guid.Empty)
+                MessageBox.Show("Логин или пароль введены неправильно.");
         }
+        
     }
 }

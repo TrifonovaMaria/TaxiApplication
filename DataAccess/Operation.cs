@@ -12,28 +12,35 @@ namespace DataAccess
     public static class Operation
     {
         private static ModelsTaxi db = new ModelsTaxi();
-        public static void RegistrateDriver(Driver driver, Authorization authorization)
+        public static bool RegistrateDriver(Driver driver, Authorization authorization)// Добавить проверку на используемый логин
         {
-            driver.ID =  Guid.NewGuid();
-            driver.ID_Auth = authorization.ID = Guid.NewGuid();
+            if (db.Authorization.Count(a => a.Login == authorization.Login) != 0)
+                return false;
+            driver.ID = Guid.NewGuid();
+            authorization.ID = driver.ID_Auth = Guid.NewGuid();
             db.Authorization.Add(authorization);
             db.Driver.Add(driver);
             db.SaveChanges();
+            return true;
         }
 
-        public static void RegistrateCustomer(Customer customer, Authorization authorization)
+        public static bool RegistrateCustomer(Customer customer, Authorization authorization)// Добавить проверку на используемый логин
         {
             try
             {
+                if (db.Authorization.Count(a => a.Login == authorization.Login) != 0)
+                    return false;
                 customer.ID = Guid.NewGuid();
                 customer.ID_Auth = authorization.ID = Guid.NewGuid();
                 db.Authorization.Add(authorization);
                 db.Customer.Add(customer);
                 db.SaveChanges();
+                return true;
             }
             catch(System.Exception e)
             {
                 var s = e.Message;
+                return false;
             }
         }
 
@@ -131,7 +138,7 @@ namespace DataAccess
             }
         }
 
-        public static void FinishTrip(Guid idDriver, Guid idOrder) //Завуршить поездку от водителя
+        public static void FinishTrip(Guid idDriver, Guid idOrder) //Завершить поездку от водителя
         {
             Driver driver = db.Driver.FirstOrDefault(cl => cl.ID == idDriver);
             Order order = db.Order.FirstOrDefault(o => o.ID == idOrder);

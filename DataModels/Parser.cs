@@ -29,9 +29,8 @@ namespace DataModels
 
         public static string ParseDriver(Driver dr)
         {
-            
-            string str = 
-                Convert.ToString(dr.ID) 
+            string str =
+                Convert.ToString(dr.ID)
                 + '/' + dr.FirstName
                 + '/' + dr.LastName
                 + '/' + dr.Birthday
@@ -39,7 +38,7 @@ namespace DataModels
                 + '/' + dr.License
                 + '/' + dr.CarNumber
                 + '/' + dr.CarClass
-                +'/' + Convert.ToString(dr.ID_Auth);
+                + '/' + Convert.ToString(dr.ID_Auth);
             return str;
         }
 
@@ -67,7 +66,8 @@ namespace DataModels
                 Convert.ToString(cust.ID)
                 + '/' + cust.FirstName
                 + '/' + cust.LastName
-                + '/' + cust.Phone;
+                + '/' + cust.Phone
+                + '/' + Convert.ToString(cust.ID_Auth);
             return str;
         }
 
@@ -79,7 +79,8 @@ namespace DataModels
                 ID = Guid.Parse(strSplit[0]),
                 FirstName = strSplit[1],
                 LastName = strSplit[2],
-                Phone = strSplit[3]
+                Phone = strSplit[3],
+                ID_Auth = Guid.Parse(strSplit[4])
             };
             return cust;
         }
@@ -96,7 +97,8 @@ namespace DataModels
                 + '/' + or.CardNumber
                 + '/' + or.Status
                 + '/' + or.ID_Driver
-                + '/' + or.Date;
+                + '/' + or.Date
+                + '/' + or.Price;
             return str;
         }
 
@@ -114,7 +116,8 @@ namespace DataModels
                 CardNumber = strSplit[6],
                 Status = strSplit[7],
                 ID_Driver = Guid.Parse(strSplit[8]),
-                Date = Convert.ToDateTime(strSplit[9])
+                Date = Convert.ToDateTime(strSplit[9]),
+                Price = Convert.ToInt32(strSplit[10])
             };
             return or;
         }
