@@ -14,9 +14,10 @@ namespace DataAccess
         private static ModelsTaxi db = new ModelsTaxi();
         public static void RegistrateDriver(Driver driver, Authorization authorization)
         {
-            driver.ID = authorization.ID = Guid.NewGuid();
-            db.Driver.Add(driver);
+            driver.ID =  Guid.NewGuid();
+            driver.ID_Auth = authorization.ID = Guid.NewGuid();
             db.Authorization.Add(authorization);
+            db.Driver.Add(driver);
             db.SaveChanges();
         }
 

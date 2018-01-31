@@ -29,6 +29,7 @@ namespace DataModels
 
         public static string ParseDriver(Driver dr)
         {
+            
             string str = 
                 Convert.ToString(dr.ID) 
                 + '/' + dr.FirstName
@@ -37,7 +38,8 @@ namespace DataModels
                 + '/' + dr.Phone
                 + '/' + dr.License
                 + '/' + dr.CarNumber
-                + '/' + dr.CarClass;
+                + '/' + dr.CarClass
+                +'/' + Convert.ToString(dr.ID_Auth);
             return str;
         }
 
@@ -53,7 +55,8 @@ namespace DataModels
                 Phone = strSplit[4],
                 License = strSplit[5],
                 CarNumber = strSplit[6],
-                CarClass = strSplit[7]
+                CarClass = strSplit[7],
+                ID_Auth = Guid.Parse(strSplit[8])
             };
             return dr;
         }
