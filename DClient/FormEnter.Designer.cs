@@ -1,6 +1,6 @@
 ﻿namespace DClient
 {
-    partial class Form1
+    partial class FormEnter
     {
         /// <summary>
         /// Обязательная переменная конструктора.
