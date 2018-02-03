@@ -59,9 +59,9 @@ public class WebServiceTaxi : System.Web.Services.WebService
     public string GetListOfOrders(Guid idClient, int role) // Показать список заказов водителя или клиента
     {
         if (role == 1)
-            return Parser.ParseListOrders(Operation.GetListOfOrdersForDriver(idClient));
-        if (role == 2)
             return Parser.ParseListOrders(Operation.GetListOfOrdersForCustomer(idClient));
+        if (role == 2)
+            return Parser.ParseListOrders(Operation.GetListOfOrdersForDriver(idClient));
         return null;
     }
 
@@ -96,9 +96,44 @@ public class WebServiceTaxi : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public void FinishTrip(Guid idDriver, Guid idOrder) //Завуршить поездку от водителя
+    public void FinishTrip(Guid idDriver, Guid idOrder) //Завершить поездку от водителя
     {
         Operation.FinishTrip(idDriver, idOrder);
     }
 
+    [WebMethod]
+    public string GetDriverNumber(Guid idOrder) //Связаться с водителем
+    {
+        return Operation.GetDriverNumber(idOrder);
+    }
+
+    [WebMethod]
+    public string FindCustomer(Guid idCustomer)// Найти заказчика по id
+    {
+        return Parser.ParseCustomer(Operation.FindCustomer(idCustomer));
+    }
+
+    [WebMethod]
+    public string FindDriver(Guid idDriver)// Найти водителя по id
+    {
+        return Parser.ParseDriver(Operation.FindDriver(idDriver));
+    }
+
+    [WebMethod]
+    public string FindAuth(Guid id)// Найти авторизацию по id
+    {
+        return Parser.ParseAuth(Operation.FindAuth(id));
+    }
+
+    [WebMethod]
+    public bool EditCustomerProfile(string auth, string customer) //Редактирование профиля заказчика
+    {
+        return Operation.EditCustomerProfile(Parser.GetAuth(auth), Parser.GetCustomer(customer));
+    }
+
+    [WebMethod]
+    public bool EditDriverProfile(string auth, string driver) //Редактирование профиля водителя
+    {
+        return Operation.EditDriverProfile(Parser.GetAuth(auth), Parser.GetDriver(driver));
+    }
 }

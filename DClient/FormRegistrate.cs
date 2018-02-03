@@ -47,6 +47,7 @@ namespace DClient
                 MessageBox.Show("Такой логин уже используется");
             else
             {
+                Program.userID = Сlient.Authorize(Parser.ParseAuth(au));
                 Program.formEnter.Show();
                 Hide();
             }

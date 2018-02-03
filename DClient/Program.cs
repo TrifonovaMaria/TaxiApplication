@@ -11,6 +11,7 @@ namespace DClient
         public static Guid userID;
         public static FormRegistrate formRegistrate;
         public static FormEnter formEnter;
+        public static FormMain formMain;
 
         /// <summary>
         /// Главная точка входа для приложения.
@@ -23,6 +24,7 @@ namespace DClient
 
             formRegistrate = new FormRegistrate();
             formEnter = new FormEnter();
+            formMain = new FormMain();
 
             Application.Run(formEnter);
         }
