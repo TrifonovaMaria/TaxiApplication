@@ -28,8 +28,7 @@ public class WebServiceTaxi : System.Web.Services.WebService
     {
         try
         {
-            Operation.RegistrateDriver(Parser.GetDriver(driver), Parser.GetAuth(authorization));
-            return true;
+            return Operation.RegistrateDriver(Parser.GetDriver(driver), Parser.GetAuth(authorization));
         }
         catch
         {
@@ -42,8 +41,7 @@ public class WebServiceTaxi : System.Web.Services.WebService
     {
         try
         {
-            Operation.RegistrateCustomer(Parser.GetCustomer(customer), Parser.GetAuth(authorization));
-            return true;
+            return Operation.RegistrateCustomer(Parser.GetCustomer(customer), Parser.GetAuth(authorization));
         }
         catch
         {

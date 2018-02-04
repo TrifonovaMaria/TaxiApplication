@@ -12,6 +12,7 @@ namespace DataAccess
     public static class Operation
     {
         private static ModelsTaxi db = new ModelsTaxi();
+
         public static bool RegistrateDriver(Driver driver, Authorization authorization)
         {
             if (db.Authorization.Count(a => a.Login == authorization.Login) != 0)
@@ -24,7 +25,9 @@ namespace DataAccess
             return true;
         }
 
+
         public static bool RegistrateCustomer(Customer customer, Authorization authorization)
+
         {
             try
             {
@@ -213,7 +216,7 @@ namespace DataAccess
             }
         }
 
-        public static void FinishTrip(Guid idDriver, Guid idOrder) //Завуршить поездку от водителя
+        public static void FinishTrip(Guid idDriver, Guid idOrder) //Завершить поездку от водителя
         {
             Driver driver = db.Driver.FirstOrDefault(cl => cl.ID == idDriver);
             Order order = db.Order.FirstOrDefault(o => o.ID == idOrder);

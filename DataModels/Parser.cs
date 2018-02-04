@@ -33,6 +33,7 @@ namespace DataModels
 
         public static string ParseDriver(Driver dr)
         {
+
             if (dr == null)
                 return null;
             string str = 
@@ -44,7 +45,7 @@ namespace DataModels
                 + '/' + dr.License
                 + '/' + dr.CarNumber
                 + '/' + dr.CarClass
-                +'/' + Convert.ToString(dr.ID_Auth);
+                + '/' + Convert.ToString(dr.ID_Auth);
             return str;
         }
 
@@ -76,7 +77,8 @@ namespace DataModels
                 Convert.ToString(cust.ID)
                 + '/' + cust.FirstName
                 + '/' + cust.LastName
-                + '/' + cust.Phone;
+                + '/' + cust.Phone
+                + '/' + Convert.ToString(cust.ID_Auth);
             return str;
         }
 
@@ -90,7 +92,8 @@ namespace DataModels
                 ID = Guid.Parse(strSplit[0]),
                 FirstName = strSplit[1],
                 LastName = strSplit[2],
-                Phone = strSplit[3]
+                Phone = strSplit[3],
+                ID_Auth = Guid.Parse(strSplit[4])
             };
             return cust;
         }
@@ -109,7 +112,8 @@ namespace DataModels
                 + '/' + or.CardNumber
                 + '/' + or.Status
                 + '/' + or.ID_Driver
-                + '/' + or.Date;
+                + '/' + or.Date
+                + '/' + or.Price;
             return str;
         }
 

@@ -26,7 +26,7 @@ namespace DataModels
         [StringLength(10)]
         public string Password { get; set; }
 
-        public int Role { get; set; }
+        public int Role { get; set; } // 1 - customer, 2 - driver
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer> Customer { get; set; }

@@ -8,6 +8,10 @@ namespace DClient
 {
     static class Program
     {
+        public static Guid userID;
+        public static FormRegistrate formRegistrate;
+        public static FormEnter formEnter;
+
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,7 +20,11 @@ namespace DClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            formRegistrate = new FormRegistrate();
+            formEnter = new FormEnter();
+
+            Application.Run(formEnter);
         }
     }
 }
