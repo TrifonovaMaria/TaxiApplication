@@ -26,12 +26,14 @@ namespace WebClient.Controllers
         [HttpPost]
         public ActionResult Register(Driver driver, Authorization auth)
         {
-            auth.Login = "masha";
+            /*auth.Login = "masha";
             auth.Password = "111";
             auth.Role = 1;
-            driver.Authorization = auth;
-            Client.RegistrateDriver(Parser.ParseDriver(driver), Parser.ParseAuth(auth));
-            return RedirectToAction("Index"); 
+            driver.Authorization = auth;*/
+            auth.Role = 1;
+            DriverAuth driverAuth = new DriverAuth(auth, driver);
+            Client.RegistrateDriver(Parser.ParseDriver(driverAuth.Driver), Parser.ParseAuth(driverAuth.Auth));
+            return RedirectToAction("Login"); 
         }
 
         public ActionResult Login()
@@ -42,10 +44,11 @@ namespace WebClient.Controllers
         [HttpPost]
         public ActionResult Login(Authorization auth)
         {
-            Client.Authorize(Parser.ParseAuth(auth));
-            if (Client.Authorize(Parser.ParseAuth(auth)) != Guid.Empty)
+            Guid id = Client.Authorize(Parser.ParseAuth(auth));
+            if (id != Guid.Empty)
             {
-                return RedirectToAction("Index");
+                //Driver driver = Parser.GetDriver(Client.FindDriverByAuth(id));
+                return RedirectToAction("AllOrders", "Order", new { driverId = id });
             }
             else
                 ModelState.AddModelError("", "Неправильно введен логин и/или пароль");

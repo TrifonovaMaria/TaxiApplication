@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DataModels.Order>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Адрес отправления
+        </th>
+        <th>
+            Адрес назначения
+        </th>
+        <th>
+            Время
+        </th>
+        <th>
+            Статус
+        </th>
+        <th>
+            Стоимость
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DestinationAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Взять заказ", "ShowOrder", new { order = item }) 
+            </td>
+        </tr>
+    }
+
+</table>

@@ -86,7 +86,7 @@
       <s:element name="ShowOrder">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="idClient" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="idClient" nillable="true" type="s1:guid" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -129,6 +129,106 @@
       </s:element>
       <s:element name="FinishTripResponse">
         <s:complexType />
+      </s:element>
+      <s:element name="GetDriverNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idOrder" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDriverNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDriverNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCustomer" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindCustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindDriver">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idDriver" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindDriverResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindDriverResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindDriverByAuth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idAuth" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindDriverByAuthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindDriverByAuthResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindAuth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindAuthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindAuthResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditCustomerProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="auth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditCustomerProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditCustomerProfileResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDriverProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="auth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="driver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDriverProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditDriverProfileResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
@@ -199,6 +299,48 @@
   <wsdl:message name="FinishTripSoapOut">
     <wsdl:part name="parameters" element="tns:FinishTripResponse" />
   </wsdl:message>
+  <wsdl:message name="GetDriverNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDriverNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetDriverNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDriverNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:FindCustomer" />
+  </wsdl:message>
+  <wsdl:message name="FindCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:FindCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindDriverSoapIn">
+    <wsdl:part name="parameters" element="tns:FindDriver" />
+  </wsdl:message>
+  <wsdl:message name="FindDriverSoapOut">
+    <wsdl:part name="parameters" element="tns:FindDriverResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindDriverByAuthSoapIn">
+    <wsdl:part name="parameters" element="tns:FindDriverByAuth" />
+  </wsdl:message>
+  <wsdl:message name="FindDriverByAuthSoapOut">
+    <wsdl:part name="parameters" element="tns:FindDriverByAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindAuthSoapIn">
+    <wsdl:part name="parameters" element="tns:FindAuth" />
+  </wsdl:message>
+  <wsdl:message name="FindAuthSoapOut">
+    <wsdl:part name="parameters" element="tns:FindAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditCustomerProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:EditCustomerProfile" />
+  </wsdl:message>
+  <wsdl:message name="EditCustomerProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:EditCustomerProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditDriverProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:EditDriverProfile" />
+  </wsdl:message>
+  <wsdl:message name="EditDriverProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:EditDriverProfileResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceTaxiSoap">
     <wsdl:operation name="RegistrateDriver">
       <wsdl:input message="tns:RegistrateDriverSoapIn" />
@@ -239,6 +381,34 @@
     <wsdl:operation name="FinishTrip">
       <wsdl:input message="tns:FinishTripSoapIn" />
       <wsdl:output message="tns:FinishTripSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDriverNumber">
+      <wsdl:input message="tns:GetDriverNumberSoapIn" />
+      <wsdl:output message="tns:GetDriverNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindCustomer">
+      <wsdl:input message="tns:FindCustomerSoapIn" />
+      <wsdl:output message="tns:FindCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindDriver">
+      <wsdl:input message="tns:FindDriverSoapIn" />
+      <wsdl:output message="tns:FindDriverSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindDriverByAuth">
+      <wsdl:input message="tns:FindDriverByAuthSoapIn" />
+      <wsdl:output message="tns:FindDriverByAuthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAuth">
+      <wsdl:input message="tns:FindAuthSoapIn" />
+      <wsdl:output message="tns:FindAuthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCustomerProfile">
+      <wsdl:input message="tns:EditCustomerProfileSoapIn" />
+      <wsdl:output message="tns:EditCustomerProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDriverProfile">
+      <wsdl:input message="tns:EditDriverProfileSoapIn" />
+      <wsdl:output message="tns:EditDriverProfileSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceTaxiSoap" type="tns:WebServiceTaxiSoap">
@@ -333,6 +503,69 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetDriverNumber">
+      <soap:operation soapAction="http://tempuri.org/GetDriverNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCustomer">
+      <soap:operation soapAction="http://tempuri.org/FindCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDriver">
+      <soap:operation soapAction="http://tempuri.org/FindDriver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDriverByAuth">
+      <soap:operation soapAction="http://tempuri.org/FindDriverByAuth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAuth">
+      <soap:operation soapAction="http://tempuri.org/FindAuth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCustomerProfile">
+      <soap:operation soapAction="http://tempuri.org/EditCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDriverProfile">
+      <soap:operation soapAction="http://tempuri.org/EditDriverProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceTaxiSoap12" type="tns:WebServiceTaxiSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -419,6 +652,69 @@
     </wsdl:operation>
     <wsdl:operation name="FinishTrip">
       <soap12:operation soapAction="http://tempuri.org/FinishTrip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDriverNumber">
+      <soap12:operation soapAction="http://tempuri.org/GetDriverNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCustomer">
+      <soap12:operation soapAction="http://tempuri.org/FindCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDriver">
+      <soap12:operation soapAction="http://tempuri.org/FindDriver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDriverByAuth">
+      <soap12:operation soapAction="http://tempuri.org/FindDriverByAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAuth">
+      <soap12:operation soapAction="http://tempuri.org/FindAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCustomerProfile">
+      <soap12:operation soapAction="http://tempuri.org/EditCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDriverProfile">
+      <soap12:operation soapAction="http://tempuri.org/EditDriverProfile" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

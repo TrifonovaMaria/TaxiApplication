@@ -54,6 +54,7 @@
     <Compile Include="Authorization.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Driver.cs" />
+    <Compile Include="DriverAuth.cs" />
     <Compile Include="ModelsTaxi.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Parser.cs" />

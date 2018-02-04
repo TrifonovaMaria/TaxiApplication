@@ -80,6 +80,55 @@ namespace WebClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FinishTrip", ReplyAction="*")]
         System.Threading.Tasks.Task FinishTripAsync(System.Guid idDriver, System.Guid idOrder);
+        
+        // CODEGEN: Контракт генерации сообщений с именем GetDriverNumberResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDriverNumber", ReplyAction="*")]
+        WebClient.ServiceReference1.GetDriverNumberResponse GetDriverNumber(WebClient.ServiceReference1.GetDriverNumberRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDriverNumber", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.GetDriverNumberResponse> GetDriverNumberAsync(WebClient.ServiceReference1.GetDriverNumberRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем FindCustomerResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindCustomer", ReplyAction="*")]
+        WebClient.ServiceReference1.FindCustomerResponse FindCustomer(WebClient.ServiceReference1.FindCustomerRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindCustomer", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.FindCustomerResponse> FindCustomerAsync(WebClient.ServiceReference1.FindCustomerRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем FindDriverResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindDriver", ReplyAction="*")]
+        WebClient.ServiceReference1.FindDriverResponse FindDriver(WebClient.ServiceReference1.FindDriverRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindDriver", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.FindDriverResponse> FindDriverAsync(WebClient.ServiceReference1.FindDriverRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем FindDriverByAuthResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindDriverByAuth", ReplyAction="*")]
+        WebClient.ServiceReference1.FindDriverByAuthResponse FindDriverByAuth(WebClient.ServiceReference1.FindDriverByAuthRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindDriverByAuth", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.FindDriverByAuthResponse> FindDriverByAuthAsync(WebClient.ServiceReference1.FindDriverByAuthRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем FindAuthResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAuth", ReplyAction="*")]
+        WebClient.ServiceReference1.FindAuthResponse FindAuth(WebClient.ServiceReference1.FindAuthRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAuth", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.FindAuthResponse> FindAuthAsync(WebClient.ServiceReference1.FindAuthRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем auth из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditCustomerProfile", ReplyAction="*")]
+        WebClient.ServiceReference1.EditCustomerProfileResponse EditCustomerProfile(WebClient.ServiceReference1.EditCustomerProfileRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditCustomerProfile", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.EditCustomerProfileResponse> EditCustomerProfileAsync(WebClient.ServiceReference1.EditCustomerProfileRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем auth из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditDriverProfile", ReplyAction="*")]
+        WebClient.ServiceReference1.EditDriverProfileResponse EditDriverProfile(WebClient.ServiceReference1.EditDriverProfileRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditDriverProfile", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.EditDriverProfileResponse> EditDriverProfileAsync(WebClient.ServiceReference1.EditDriverProfileRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -451,12 +500,12 @@ namespace WebClient.ServiceReference1 {
     public partial class ShowOrderRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public System.Guid idClient;
+        public System.Nullable<System.Guid> idClient;
         
         public ShowOrderRequestBody() {
         }
         
-        public ShowOrderRequestBody(System.Guid idClient) {
+        public ShowOrderRequestBody(System.Nullable<System.Guid> idClient) {
             this.idClient = idClient;
         }
     }
@@ -492,6 +541,490 @@ namespace WebClient.ServiceReference1 {
         
         public ShowOrderResponseBody(string ShowOrderResult) {
             this.ShowOrderResult = ShowOrderResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDriverNumberRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDriverNumber", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.GetDriverNumberRequestBody Body;
+        
+        public GetDriverNumberRequest() {
+        }
+        
+        public GetDriverNumberRequest(WebClient.ServiceReference1.GetDriverNumberRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDriverNumberRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.Guid idOrder;
+        
+        public GetDriverNumberRequestBody() {
+        }
+        
+        public GetDriverNumberRequestBody(System.Guid idOrder) {
+            this.idOrder = idOrder;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDriverNumberResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDriverNumberResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.GetDriverNumberResponseBody Body;
+        
+        public GetDriverNumberResponse() {
+        }
+        
+        public GetDriverNumberResponse(WebClient.ServiceReference1.GetDriverNumberResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDriverNumberResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string GetDriverNumberResult;
+        
+        public GetDriverNumberResponseBody() {
+        }
+        
+        public GetDriverNumberResponseBody(string GetDriverNumberResult) {
+            this.GetDriverNumberResult = GetDriverNumberResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindCustomerRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindCustomer", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.FindCustomerRequestBody Body;
+        
+        public FindCustomerRequest() {
+        }
+        
+        public FindCustomerRequest(WebClient.ServiceReference1.FindCustomerRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindCustomerRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.Guid idCustomer;
+        
+        public FindCustomerRequestBody() {
+        }
+        
+        public FindCustomerRequestBody(System.Guid idCustomer) {
+            this.idCustomer = idCustomer;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindCustomerResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindCustomerResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.FindCustomerResponseBody Body;
+        
+        public FindCustomerResponse() {
+        }
+        
+        public FindCustomerResponse(WebClient.ServiceReference1.FindCustomerResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindCustomerResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string FindCustomerResult;
+        
+        public FindCustomerResponseBody() {
+        }
+        
+        public FindCustomerResponseBody(string FindCustomerResult) {
+            this.FindCustomerResult = FindCustomerResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindDriverRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindDriver", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.FindDriverRequestBody Body;
+        
+        public FindDriverRequest() {
+        }
+        
+        public FindDriverRequest(WebClient.ServiceReference1.FindDriverRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindDriverRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.Guid idDriver;
+        
+        public FindDriverRequestBody() {
+        }
+        
+        public FindDriverRequestBody(System.Guid idDriver) {
+            this.idDriver = idDriver;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindDriverResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindDriverResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.FindDriverResponseBody Body;
+        
+        public FindDriverResponse() {
+        }
+        
+        public FindDriverResponse(WebClient.ServiceReference1.FindDriverResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindDriverResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string FindDriverResult;
+        
+        public FindDriverResponseBody() {
+        }
+        
+        public FindDriverResponseBody(string FindDriverResult) {
+            this.FindDriverResult = FindDriverResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindDriverByAuthRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindDriverByAuth", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.FindDriverByAuthRequestBody Body;
+        
+        public FindDriverByAuthRequest() {
+        }
+        
+        public FindDriverByAuthRequest(WebClient.ServiceReference1.FindDriverByAuthRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindDriverByAuthRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.Guid idAuth;
+        
+        public FindDriverByAuthRequestBody() {
+        }
+        
+        public FindDriverByAuthRequestBody(System.Guid idAuth) {
+            this.idAuth = idAuth;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindDriverByAuthResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindDriverByAuthResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.FindDriverByAuthResponseBody Body;
+        
+        public FindDriverByAuthResponse() {
+        }
+        
+        public FindDriverByAuthResponse(WebClient.ServiceReference1.FindDriverByAuthResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindDriverByAuthResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string FindDriverByAuthResult;
+        
+        public FindDriverByAuthResponseBody() {
+        }
+        
+        public FindDriverByAuthResponseBody(string FindDriverByAuthResult) {
+            this.FindDriverByAuthResult = FindDriverByAuthResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindAuthRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindAuth", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.FindAuthRequestBody Body;
+        
+        public FindAuthRequest() {
+        }
+        
+        public FindAuthRequest(WebClient.ServiceReference1.FindAuthRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindAuthRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.Guid id;
+        
+        public FindAuthRequestBody() {
+        }
+        
+        public FindAuthRequestBody(System.Guid id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindAuthResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindAuthResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.FindAuthResponseBody Body;
+        
+        public FindAuthResponse() {
+        }
+        
+        public FindAuthResponse(WebClient.ServiceReference1.FindAuthResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindAuthResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string FindAuthResult;
+        
+        public FindAuthResponseBody() {
+        }
+        
+        public FindAuthResponseBody(string FindAuthResult) {
+            this.FindAuthResult = FindAuthResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class EditCustomerProfileRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="EditCustomerProfile", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.EditCustomerProfileRequestBody Body;
+        
+        public EditCustomerProfileRequest() {
+        }
+        
+        public EditCustomerProfileRequest(WebClient.ServiceReference1.EditCustomerProfileRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class EditCustomerProfileRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string auth;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string customer;
+        
+        public EditCustomerProfileRequestBody() {
+        }
+        
+        public EditCustomerProfileRequestBody(string auth, string customer) {
+            this.auth = auth;
+            this.customer = customer;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class EditCustomerProfileResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="EditCustomerProfileResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.EditCustomerProfileResponseBody Body;
+        
+        public EditCustomerProfileResponse() {
+        }
+        
+        public EditCustomerProfileResponse(WebClient.ServiceReference1.EditCustomerProfileResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class EditCustomerProfileResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool EditCustomerProfileResult;
+        
+        public EditCustomerProfileResponseBody() {
+        }
+        
+        public EditCustomerProfileResponseBody(bool EditCustomerProfileResult) {
+            this.EditCustomerProfileResult = EditCustomerProfileResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class EditDriverProfileRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="EditDriverProfile", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.EditDriverProfileRequestBody Body;
+        
+        public EditDriverProfileRequest() {
+        }
+        
+        public EditDriverProfileRequest(WebClient.ServiceReference1.EditDriverProfileRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class EditDriverProfileRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string auth;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string driver;
+        
+        public EditDriverProfileRequestBody() {
+        }
+        
+        public EditDriverProfileRequestBody(string auth, string driver) {
+            this.auth = auth;
+            this.driver = driver;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class EditDriverProfileResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="EditDriverProfileResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.EditDriverProfileResponseBody Body;
+        
+        public EditDriverProfileResponse() {
+        }
+        
+        public EditDriverProfileResponse(WebClient.ServiceReference1.EditDriverProfileResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class EditDriverProfileResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool EditDriverProfileResult;
+        
+        public EditDriverProfileResponseBody() {
+        }
+        
+        public EditDriverProfileResponseBody(bool EditDriverProfileResult) {
+            this.EditDriverProfileResult = EditDriverProfileResult;
         }
     }
     
@@ -665,7 +1198,7 @@ namespace WebClient.ServiceReference1 {
             return base.Channel.ShowOrder(request);
         }
         
-        public string ShowOrder(System.Guid idClient) {
+        public string ShowOrder(System.Nullable<System.Guid> idClient) {
             WebClient.ServiceReference1.ShowOrderRequest inValue = new WebClient.ServiceReference1.ShowOrderRequest();
             inValue.Body = new WebClient.ServiceReference1.ShowOrderRequestBody();
             inValue.Body.idClient = idClient;
@@ -678,7 +1211,7 @@ namespace WebClient.ServiceReference1 {
             return base.Channel.ShowOrderAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WebClient.ServiceReference1.ShowOrderResponse> ShowOrderAsync(System.Guid idClient) {
+        public System.Threading.Tasks.Task<WebClient.ServiceReference1.ShowOrderResponse> ShowOrderAsync(System.Nullable<System.Guid> idClient) {
             WebClient.ServiceReference1.ShowOrderRequest inValue = new WebClient.ServiceReference1.ShowOrderRequest();
             inValue.Body = new WebClient.ServiceReference1.ShowOrderRequestBody();
             inValue.Body.idClient = idClient;
@@ -707,6 +1240,185 @@ namespace WebClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task FinishTripAsync(System.Guid idDriver, System.Guid idOrder) {
             return base.Channel.FinishTripAsync(idDriver, idOrder);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ServiceReference1.GetDriverNumberResponse WebClient.ServiceReference1.WebServiceTaxiSoap.GetDriverNumber(WebClient.ServiceReference1.GetDriverNumberRequest request) {
+            return base.Channel.GetDriverNumber(request);
+        }
+        
+        public string GetDriverNumber(System.Guid idOrder) {
+            WebClient.ServiceReference1.GetDriverNumberRequest inValue = new WebClient.ServiceReference1.GetDriverNumberRequest();
+            inValue.Body = new WebClient.ServiceReference1.GetDriverNumberRequestBody();
+            inValue.Body.idOrder = idOrder;
+            WebClient.ServiceReference1.GetDriverNumberResponse retVal = ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).GetDriverNumber(inValue);
+            return retVal.Body.GetDriverNumberResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.GetDriverNumberResponse> WebClient.ServiceReference1.WebServiceTaxiSoap.GetDriverNumberAsync(WebClient.ServiceReference1.GetDriverNumberRequest request) {
+            return base.Channel.GetDriverNumberAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ServiceReference1.GetDriverNumberResponse> GetDriverNumberAsync(System.Guid idOrder) {
+            WebClient.ServiceReference1.GetDriverNumberRequest inValue = new WebClient.ServiceReference1.GetDriverNumberRequest();
+            inValue.Body = new WebClient.ServiceReference1.GetDriverNumberRequestBody();
+            inValue.Body.idOrder = idOrder;
+            return ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).GetDriverNumberAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ServiceReference1.FindCustomerResponse WebClient.ServiceReference1.WebServiceTaxiSoap.FindCustomer(WebClient.ServiceReference1.FindCustomerRequest request) {
+            return base.Channel.FindCustomer(request);
+        }
+        
+        public string FindCustomer(System.Guid idCustomer) {
+            WebClient.ServiceReference1.FindCustomerRequest inValue = new WebClient.ServiceReference1.FindCustomerRequest();
+            inValue.Body = new WebClient.ServiceReference1.FindCustomerRequestBody();
+            inValue.Body.idCustomer = idCustomer;
+            WebClient.ServiceReference1.FindCustomerResponse retVal = ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindCustomer(inValue);
+            return retVal.Body.FindCustomerResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.FindCustomerResponse> WebClient.ServiceReference1.WebServiceTaxiSoap.FindCustomerAsync(WebClient.ServiceReference1.FindCustomerRequest request) {
+            return base.Channel.FindCustomerAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ServiceReference1.FindCustomerResponse> FindCustomerAsync(System.Guid idCustomer) {
+            WebClient.ServiceReference1.FindCustomerRequest inValue = new WebClient.ServiceReference1.FindCustomerRequest();
+            inValue.Body = new WebClient.ServiceReference1.FindCustomerRequestBody();
+            inValue.Body.idCustomer = idCustomer;
+            return ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindCustomerAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ServiceReference1.FindDriverResponse WebClient.ServiceReference1.WebServiceTaxiSoap.FindDriver(WebClient.ServiceReference1.FindDriverRequest request) {
+            return base.Channel.FindDriver(request);
+        }
+        
+        public string FindDriver(System.Guid idDriver) {
+            WebClient.ServiceReference1.FindDriverRequest inValue = new WebClient.ServiceReference1.FindDriverRequest();
+            inValue.Body = new WebClient.ServiceReference1.FindDriverRequestBody();
+            inValue.Body.idDriver = idDriver;
+            WebClient.ServiceReference1.FindDriverResponse retVal = ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindDriver(inValue);
+            return retVal.Body.FindDriverResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.FindDriverResponse> WebClient.ServiceReference1.WebServiceTaxiSoap.FindDriverAsync(WebClient.ServiceReference1.FindDriverRequest request) {
+            return base.Channel.FindDriverAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ServiceReference1.FindDriverResponse> FindDriverAsync(System.Guid idDriver) {
+            WebClient.ServiceReference1.FindDriverRequest inValue = new WebClient.ServiceReference1.FindDriverRequest();
+            inValue.Body = new WebClient.ServiceReference1.FindDriverRequestBody();
+            inValue.Body.idDriver = idDriver;
+            return ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindDriverAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ServiceReference1.FindDriverByAuthResponse WebClient.ServiceReference1.WebServiceTaxiSoap.FindDriverByAuth(WebClient.ServiceReference1.FindDriverByAuthRequest request) {
+            return base.Channel.FindDriverByAuth(request);
+        }
+        
+        public string FindDriverByAuth(System.Guid idAuth) {
+            WebClient.ServiceReference1.FindDriverByAuthRequest inValue = new WebClient.ServiceReference1.FindDriverByAuthRequest();
+            inValue.Body = new WebClient.ServiceReference1.FindDriverByAuthRequestBody();
+            inValue.Body.idAuth = idAuth;
+            WebClient.ServiceReference1.FindDriverByAuthResponse retVal = ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindDriverByAuth(inValue);
+            return retVal.Body.FindDriverByAuthResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.FindDriverByAuthResponse> WebClient.ServiceReference1.WebServiceTaxiSoap.FindDriverByAuthAsync(WebClient.ServiceReference1.FindDriverByAuthRequest request) {
+            return base.Channel.FindDriverByAuthAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ServiceReference1.FindDriverByAuthResponse> FindDriverByAuthAsync(System.Guid idAuth) {
+            WebClient.ServiceReference1.FindDriverByAuthRequest inValue = new WebClient.ServiceReference1.FindDriverByAuthRequest();
+            inValue.Body = new WebClient.ServiceReference1.FindDriverByAuthRequestBody();
+            inValue.Body.idAuth = idAuth;
+            return ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindDriverByAuthAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ServiceReference1.FindAuthResponse WebClient.ServiceReference1.WebServiceTaxiSoap.FindAuth(WebClient.ServiceReference1.FindAuthRequest request) {
+            return base.Channel.FindAuth(request);
+        }
+        
+        public string FindAuth(System.Guid id) {
+            WebClient.ServiceReference1.FindAuthRequest inValue = new WebClient.ServiceReference1.FindAuthRequest();
+            inValue.Body = new WebClient.ServiceReference1.FindAuthRequestBody();
+            inValue.Body.id = id;
+            WebClient.ServiceReference1.FindAuthResponse retVal = ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindAuth(inValue);
+            return retVal.Body.FindAuthResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.FindAuthResponse> WebClient.ServiceReference1.WebServiceTaxiSoap.FindAuthAsync(WebClient.ServiceReference1.FindAuthRequest request) {
+            return base.Channel.FindAuthAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ServiceReference1.FindAuthResponse> FindAuthAsync(System.Guid id) {
+            WebClient.ServiceReference1.FindAuthRequest inValue = new WebClient.ServiceReference1.FindAuthRequest();
+            inValue.Body = new WebClient.ServiceReference1.FindAuthRequestBody();
+            inValue.Body.id = id;
+            return ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindAuthAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ServiceReference1.EditCustomerProfileResponse WebClient.ServiceReference1.WebServiceTaxiSoap.EditCustomerProfile(WebClient.ServiceReference1.EditCustomerProfileRequest request) {
+            return base.Channel.EditCustomerProfile(request);
+        }
+        
+        public bool EditCustomerProfile(string auth, string customer) {
+            WebClient.ServiceReference1.EditCustomerProfileRequest inValue = new WebClient.ServiceReference1.EditCustomerProfileRequest();
+            inValue.Body = new WebClient.ServiceReference1.EditCustomerProfileRequestBody();
+            inValue.Body.auth = auth;
+            inValue.Body.customer = customer;
+            WebClient.ServiceReference1.EditCustomerProfileResponse retVal = ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).EditCustomerProfile(inValue);
+            return retVal.Body.EditCustomerProfileResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.EditCustomerProfileResponse> WebClient.ServiceReference1.WebServiceTaxiSoap.EditCustomerProfileAsync(WebClient.ServiceReference1.EditCustomerProfileRequest request) {
+            return base.Channel.EditCustomerProfileAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ServiceReference1.EditCustomerProfileResponse> EditCustomerProfileAsync(string auth, string customer) {
+            WebClient.ServiceReference1.EditCustomerProfileRequest inValue = new WebClient.ServiceReference1.EditCustomerProfileRequest();
+            inValue.Body = new WebClient.ServiceReference1.EditCustomerProfileRequestBody();
+            inValue.Body.auth = auth;
+            inValue.Body.customer = customer;
+            return ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).EditCustomerProfileAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ServiceReference1.EditDriverProfileResponse WebClient.ServiceReference1.WebServiceTaxiSoap.EditDriverProfile(WebClient.ServiceReference1.EditDriverProfileRequest request) {
+            return base.Channel.EditDriverProfile(request);
+        }
+        
+        public bool EditDriverProfile(string auth, string driver) {
+            WebClient.ServiceReference1.EditDriverProfileRequest inValue = new WebClient.ServiceReference1.EditDriverProfileRequest();
+            inValue.Body = new WebClient.ServiceReference1.EditDriverProfileRequestBody();
+            inValue.Body.auth = auth;
+            inValue.Body.driver = driver;
+            WebClient.ServiceReference1.EditDriverProfileResponse retVal = ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).EditDriverProfile(inValue);
+            return retVal.Body.EditDriverProfileResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.EditDriverProfileResponse> WebClient.ServiceReference1.WebServiceTaxiSoap.EditDriverProfileAsync(WebClient.ServiceReference1.EditDriverProfileRequest request) {
+            return base.Channel.EditDriverProfileAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ServiceReference1.EditDriverProfileResponse> EditDriverProfileAsync(string auth, string driver) {
+            WebClient.ServiceReference1.EditDriverProfileRequest inValue = new WebClient.ServiceReference1.EditDriverProfileRequest();
+            inValue.Body = new WebClient.ServiceReference1.EditDriverProfileRequestBody();
+            inValue.Body.auth = auth;
+            inValue.Body.driver = driver;
+            return ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).EditDriverProfileAsync(inValue);
         }
     }
 }
