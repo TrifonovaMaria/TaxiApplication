@@ -80,6 +80,7 @@ namespace DClient
         public void GetOrdersTable()
         {
             List<Order> list = Parser.GetListOrders(Сlient.GetListOfOrders(Program.userID, 1));
+            dataGridViewOrders.Rows.Clear();
             foreach (var order in list)
                 dataGridViewOrders.Rows.Add(order.Date, order.DepartureAddress, order.DestinationAddress, GetStatus(Convert.ToInt32(order.Status)));
         }
@@ -192,7 +193,7 @@ namespace DClient
             var cust = Parser.GetCustomer(Сlient.FindCustomer(Program.userID));
             cust.FirstName = textBoxFName.Text;
             cust.LastName = textBoxLName.Text;
-            cust.Phone = textBoxPhone.Text;
+            cust.Phone = textBoxCustomerPhone.Text;
 
             var au = Parser.GetAuth(Сlient.FindAuth(cust.ID_Auth));
             au.Login = textBoxLogin.Text;

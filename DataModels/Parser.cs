@@ -137,6 +137,8 @@ namespace DataModels
             };
             if (strSplit[8] == "")
                 or.ID_Driver = null;
+            else
+                or.ID_Driver = Guid.Parse(strSplit[8]);
 
             return or;
         }

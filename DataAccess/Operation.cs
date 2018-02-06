@@ -206,20 +206,43 @@ namespace DataAccess
 
         public static bool EditCustomerProfile (Authorization auth, Customer customer) //Редактирование профиля заказчика
         {
-            if (db.Authorization.Count(a => a.Login == auth.Login) != 0)
+            if (db.Authorization.Count(a => a.Login == auth.Login) > 1)
                 return false;
-            db.Entry(auth).State = EntityState.Modified;
-            db.Entry(customer).State = EntityState.Modified;
+
+            var au = db.Authorization.FirstOrDefault(a => a.ID == auth.ID);
+            au.Login = auth.Login;
+            au.Password = auth.Password;
+
+            var cust = db.Customer.FirstOrDefault(c => c.ID == customer.ID);
+            cust.LastName = customer.LastName;
+            cust.FirstName = customer.FirstName;
+            cust.Phone = customer.Phone;
+
+            db.Entry(au).State = EntityState.Modified;
+            db.Entry(cust).State = EntityState.Modified;
             db.SaveChanges();
             return true;
         }
 
         public static bool EditDriverProfile(Authorization auth, Driver driver) //Редактирование профиля водителя
         {
-            if (db.Authorization.Count(a => a.Login == auth.Login) != 0)
+            if (db.Authorization.Count(a => a.Login == auth.Login) > 1)
                 return false;
-            db.Entry(auth).State = EntityState.Modified;
-            db.Entry(driver).State = EntityState.Modified;
+
+            var au = db.Authorization.FirstOrDefault(a => a.ID == auth.ID);
+            au.Login = auth.Login;
+            au.Password = auth.Password;
+
+            var dr = db.Driver.FirstOrDefault(d => d.ID == driver.ID);
+            dr.Birthday = driver.Birthday;
+            dr.CarClass = driver.CarClass;
+            dr.CarNumber = driver.FirstName;
+            dr.LastName = driver.LastName;
+            dr.License = driver.License;
+            dr.Phone = driver.Phone;
+
+            db.Entry(au).State = EntityState.Modified;
+            db.Entry(dr).State = EntityState.Modified;
             db.SaveChanges();
             return true;
         }
