@@ -206,7 +206,7 @@ namespace DataAccess
 
         public static bool EditCustomerProfile (Authorization auth, Customer customer) //Редактирование профиля заказчика
         {
-            if (db.Authorization.Count(a => a.Login == auth.Login) > 1)
+            if (db.Authorization.Count(a => a.Login == auth.Login && a.ID != auth.ID) != 0)
                 return false;
 
             var au = db.Authorization.FirstOrDefault(a => a.ID == auth.ID);
@@ -226,7 +226,7 @@ namespace DataAccess
 
         public static bool EditDriverProfile(Authorization auth, Driver driver) //Редактирование профиля водителя
         {
-            if (db.Authorization.Count(a => a.Login == auth.Login) > 1)
+            if (db.Authorization.Count(a => a.Login == auth.Login && a.ID != auth.ID) != 0)
                 return false;
 
             var au = db.Authorization.FirstOrDefault(a => a.ID == auth.ID);

@@ -43,8 +43,10 @@ namespace DClient
             if (Program.userID == Guid.Empty)
                 MessageBox.Show("Логин или пароль введены неправильно.");
             else
+            {
                 Program.formMain.Show();
-            Hide();
+                Hide();
+            }
         }
         
     }
