@@ -1,0 +1,92 @@
+﻿@model DataModels.OrderDriver
+
+
+
+@*@if (Model.Order.Status == "3")
+{<h2>Извините, заказ был отменен клиентом</h2>
+    @Html.ActionLink("Доступные заказы", "AllOrders", new { driverId = Model.Driver.ID })}
+
+else
+{*@
+    <h2>Детали заказа</h2>
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            Адрес оптравления
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.DepartureAddress)
+        </dd>
+
+        <dt>
+            Адрес назначения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.DestinationAddress)
+        </dd>
+
+        <dt>
+            Время
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.Date)
+        </dd>
+
+        <dt>
+            Статус
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.Status) |
+            @Html.ActionLink("Проверить статус", "ShowOrder", new { orderId = Model.Order.ID, driverId = Model.Driver.ID, act = "Update" })
+        </dd>
+
+        <dt>
+            Способ оплаты
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.PaymentMethod)
+        </dd>
+
+        <dt>
+            Цена
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.Price)
+        </dd>
+
+    </dl>
+</div>
+@if (Model.Order.Status == "2")
+    {<p>
+        @Html.ActionLink("Отказаться от заказа", "CancelOrder", new { orderId = Model.Order.ID, driverId = Model.Driver.ID })|
+        @Html.ActionLink("Начать поездку", "ShowOrder", new { orderId = Model.Order.ID, driverId = Model.Driver.ID, act = "StartTrip" })
+    </p>}
+@if (Model.Order.Status == "3")
+    {<p>
+         <h2>Заказ был отменен клиентом!</h2>
+    @Html.ActionLink("Доступные заказы", "AllOrders", new { driverId = Model.Driver.ID })
+</p>}
+@if (Model.Order.Status == "4")
+    {<p>
+         @Html.ActionLink("Завершить поездку", "ShowOrder", new { orderId = Model.Order.ID, driverId = Model.Driver.ID, act = "FinishTrip" })
+    </p>}
+
+@if (Model.Order.Status == "5")
+    {
+        @Html.ActionLink("Доступные заказы", "AllOrders", new { driverId = Model.Driver.ID})
+    }
+
+
+
+
+
+
+

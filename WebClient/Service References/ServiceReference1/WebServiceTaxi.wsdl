@@ -200,6 +200,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="FindOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="EditCustomerProfile">
         <s:complexType>
           <s:sequence>
@@ -329,6 +343,12 @@
   <wsdl:message name="FindAuthSoapOut">
     <wsdl:part name="parameters" element="tns:FindAuthResponse" />
   </wsdl:message>
+  <wsdl:message name="FindOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:FindOrder" />
+  </wsdl:message>
+  <wsdl:message name="FindOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:FindOrderResponse" />
+  </wsdl:message>
   <wsdl:message name="EditCustomerProfileSoapIn">
     <wsdl:part name="parameters" element="tns:EditCustomerProfile" />
   </wsdl:message>
@@ -401,6 +421,10 @@
     <wsdl:operation name="FindAuth">
       <wsdl:input message="tns:FindAuthSoapIn" />
       <wsdl:output message="tns:FindAuthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindOrder">
+      <wsdl:input message="tns:FindOrderSoapIn" />
+      <wsdl:output message="tns:FindOrderSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="EditCustomerProfile">
       <wsdl:input message="tns:EditCustomerProfileSoapIn" />
@@ -541,6 +565,15 @@
     </wsdl:operation>
     <wsdl:operation name="FindAuth">
       <soap:operation soapAction="http://tempuri.org/FindAuth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindOrder">
+      <soap:operation soapAction="http://tempuri.org/FindOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -697,6 +730,15 @@
     </wsdl:operation>
     <wsdl:operation name="FindAuth">
       <soap12:operation soapAction="http://tempuri.org/FindAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindOrder">
+      <soap12:operation soapAction="http://tempuri.org/FindOrder" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

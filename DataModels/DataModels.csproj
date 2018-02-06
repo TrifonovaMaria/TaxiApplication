@@ -57,6 +57,7 @@
     <Compile Include="DriverAuth.cs" />
     <Compile Include="ModelsTaxi.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrderDriver.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

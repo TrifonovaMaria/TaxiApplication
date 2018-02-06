@@ -116,6 +116,13 @@ namespace WebClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAuth", ReplyAction="*")]
         System.Threading.Tasks.Task<WebClient.ServiceReference1.FindAuthResponse> FindAuthAsync(WebClient.ServiceReference1.FindAuthRequest request);
         
+        // CODEGEN: Контракт генерации сообщений с именем FindOrderResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindOrder", ReplyAction="*")]
+        WebClient.ServiceReference1.FindOrderResponse FindOrder(WebClient.ServiceReference1.FindOrderRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindOrder", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.FindOrderResponse> FindOrderAsync(WebClient.ServiceReference1.FindOrderRequest request);
+        
         // CODEGEN: Контракт генерации сообщений с именем auth из пространства имен http://tempuri.org/ не отмечен как обнуляемый
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditCustomerProfile", ReplyAction="*")]
         WebClient.ServiceReference1.EditCustomerProfileResponse EditCustomerProfile(WebClient.ServiceReference1.EditCustomerProfileRequest request);
@@ -888,6 +895,74 @@ namespace WebClient.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindOrderRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindOrder", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.FindOrderRequestBody Body;
+        
+        public FindOrderRequest() {
+        }
+        
+        public FindOrderRequest(WebClient.ServiceReference1.FindOrderRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindOrderRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.Guid id;
+        
+        public FindOrderRequestBody() {
+        }
+        
+        public FindOrderRequestBody(System.Guid id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class FindOrderResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindOrderResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WebClient.ServiceReference1.FindOrderResponseBody Body;
+        
+        public FindOrderResponse() {
+        }
+        
+        public FindOrderResponse(WebClient.ServiceReference1.FindOrderResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindOrderResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string FindOrderResult;
+        
+        public FindOrderResponseBody() {
+        }
+        
+        public FindOrderResponseBody(string FindOrderResult) {
+            this.FindOrderResult = FindOrderResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class EditCustomerProfileRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="EditCustomerProfile", Namespace="http://tempuri.org/", Order=0)]
@@ -1365,6 +1440,31 @@ namespace WebClient.ServiceReference1 {
             inValue.Body = new WebClient.ServiceReference1.FindAuthRequestBody();
             inValue.Body.id = id;
             return ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindAuthAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebClient.ServiceReference1.FindOrderResponse WebClient.ServiceReference1.WebServiceTaxiSoap.FindOrder(WebClient.ServiceReference1.FindOrderRequest request) {
+            return base.Channel.FindOrder(request);
+        }
+        
+        public string FindOrder(System.Guid id) {
+            WebClient.ServiceReference1.FindOrderRequest inValue = new WebClient.ServiceReference1.FindOrderRequest();
+            inValue.Body = new WebClient.ServiceReference1.FindOrderRequestBody();
+            inValue.Body.id = id;
+            WebClient.ServiceReference1.FindOrderResponse retVal = ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindOrder(inValue);
+            return retVal.Body.FindOrderResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebClient.ServiceReference1.FindOrderResponse> WebClient.ServiceReference1.WebServiceTaxiSoap.FindOrderAsync(WebClient.ServiceReference1.FindOrderRequest request) {
+            return base.Channel.FindOrderAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebClient.ServiceReference1.FindOrderResponse> FindOrderAsync(System.Guid id) {
+            WebClient.ServiceReference1.FindOrderRequest inValue = new WebClient.ServiceReference1.FindOrderRequest();
+            inValue.Body = new WebClient.ServiceReference1.FindOrderRequestBody();
+            inValue.Body.id = id;
+            return ((WebClient.ServiceReference1.WebServiceTaxiSoap)(this)).FindOrderAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

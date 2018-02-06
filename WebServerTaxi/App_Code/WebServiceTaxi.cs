@@ -130,8 +130,14 @@ public class WebServiceTaxi : System.Web.Services.WebService
      {
          return Parser.ParseAuth(Operation.FindAuth(id));
      }
- 
-     [WebMethod]
+
+    [WebMethod]
+    public string FindOrder(Guid id)// Найти заказ по id
+    {
+        return Parser.ParseOrder(Operation.FindOrder(id));
+    }
+
+    [WebMethod]
      public bool EditCustomerProfile(string auth, string customer) //Редактирование профиля заказчика
      {
          return Operation.EditCustomerProfile(Parser.GetAuth(auth), Parser.GetCustomer(customer));

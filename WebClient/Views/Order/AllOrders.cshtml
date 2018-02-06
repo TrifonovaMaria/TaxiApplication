@@ -1,6 +1,7 @@
-﻿@model IEnumerable<DataModels.Order>
+﻿@model IEnumerable<DataModels.OrderDriver>
 
-
+@if (Model != null)
+{
 <table class="table">
     <tr>
         <th>
@@ -13,35 +14,35 @@
             Время
         </th>
         <th>
-            Статус
-        </th>
-        <th>
             Стоимость
         </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartureAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DestinationAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.ActionLink("Взять заказ", "ShowOrder", new { order = item }) 
-            </td>
-        </tr>
-    }
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.DepartureAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.DestinationAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Взять заказ", "ShowOrder", new { orderId = item.Order.ID, driverId = item.Driver.ID, act = "ShowOrder" })
+        </td>
+    </tr>
+        }
+
 
 </table>
+}
+else
+{ <h2>На данный момент доступных заказов нет!</h2> }
+@Html.ActionLink("Редактировать профиль", "Edit", "Authorization", new { driverId = Model.First().Driver.ID, authId = Model.First().Driver.ID_Auth })

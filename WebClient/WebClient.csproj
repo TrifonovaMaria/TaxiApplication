@@ -232,6 +232,9 @@
     <Content Include="Service References\ServiceReference1\WebClient.ServiceReference1.FindDriverByAuthResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ServiceReference1\WebClient.ServiceReference1.FindOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ServiceReference1\WebServiceTaxi.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -252,6 +255,10 @@
     <Content Include="Views\Authorization\Index.cshtml" />
     <Content Include="Views\Authorization\Login.cshtml" />
     <Content Include="Views\Order\AllOrders.cshtml" />
+    <Content Include="Views\Order\ShowOrder.cshtml" />
+    <Content Include="Views\Order\CancelOrder.cshtml" />
+    <Content Include="Views\Shared\_LayoutAuth.cshtml" />
+    <Content Include="Views\Authorization\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

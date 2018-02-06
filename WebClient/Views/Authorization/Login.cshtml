@@ -1,12 +1,11 @@
 ﻿@model DataModels.Authorization
 
-
+<h3>Для просмотра заказов, пожалуйста, авторизуйтесь </h3>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Вход в систему</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -35,6 +34,7 @@
 }
 
 <div>
+    <h5>Еще не зарегестрированы?</h5>
     @Html.ActionLink("Регистрация", "Register")
 </div>
 

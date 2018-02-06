@@ -149,6 +149,8 @@ namespace DataAccess
                 if (r == 1) //driver
                 {
                     order.Status = "1";
+                    order.Driver = null;
+                    order.ID_Driver = null;
                     db.Entry(order).State = EntityState.Modified;
                     db.SaveChanges();
                 }
@@ -163,8 +165,17 @@ namespace DataAccess
              Driver driver = db.Driver.FirstOrDefault(d => d.ID == order.ID_Driver);
              return driver.Phone;
          }
- 
-         public static Customer FindCustomer(Guid idCustomer)// Найти заказчика по id
+
+        public static string GetCustomerNumber(Guid idOrder)// Связаться с водителем
+        {
+            Order order = db.Order.FirstOrDefault(o => o.ID == idOrder);
+            if (order.ID_Customer == null)
+                return null;
+            Customer customer = db.Customer.FirstOrDefault(d => d.ID == order.ID_Customer);
+            return customer.Phone;
+        }
+
+        public static Customer FindCustomer(Guid idCustomer)// Найти заказчика по id
          {
              return db.Customer.FirstOrDefault(c => c.ID == idCustomer);
          }
@@ -183,8 +194,13 @@ namespace DataAccess
          {
              return db.Authorization.FirstOrDefault(a => a.ID == id);
          }
- 
-         public static bool EditCustomerProfile(Authorization auth, Customer customer) //Редактирование профиля заказчика
+
+        public static Order FindOrder(Guid id)// Найти заказ по id
+        {
+            return db.Order.FirstOrDefault(a => a.ID == id);
+        }
+
+        public static bool EditCustomerProfile(Authorization auth, Customer customer) //Редактирование профиля заказчика
          {
              if (db.Authorization.Count(a => a.Login == auth.Login) != 0)
                  return false;
@@ -208,7 +224,7 @@ namespace DataAccess
         {
             Driver driver = db.Driver.FirstOrDefault(cl => cl.ID == idDriver);
             Order order = db.Order.FirstOrDefault(o => o.ID == idOrder);
-            if (order.Status == "3")
+            if (order.Status == "2")
             {
                 order.Status = "4";
                 db.Entry(order).State = EntityState.Modified;

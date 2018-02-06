@@ -30,10 +30,20 @@ namespace WebClient.Controllers
             auth.Password = "111";
             auth.Role = 1;
             driver.Authorization = auth;*/
+            /*var auth1 = Client.FindAuth(auth.ID);
+            if (auth1 == null)
+            {*/
             auth.Role = 1;
             DriverAuth driverAuth = new DriverAuth(auth, driver);
-            Client.RegistrateDriver(Parser.ParseDriver(driverAuth.Driver), Parser.ParseAuth(driverAuth.Auth));
-            return RedirectToAction("Login"); 
+
+            if (Client.RegistrateDriver(Parser.ParseDriver(driverAuth.Driver), Parser.ParseAuth(driverAuth.Auth)) == false)
+                ModelState.AddModelError("", "Данный логин уже занят");
+            else
+            {
+                Client.RegistrateDriver(Parser.ParseDriver(driverAuth.Driver), Parser.ParseAuth(driverAuth.Auth));
+                return RedirectToAction("Login");
+            }
+            return View();
         }
 
         public ActionResult Login()
@@ -53,6 +63,21 @@ namespace WebClient.Controllers
             else
                 ModelState.AddModelError("", "Неправильно введен логин и/или пароль");
             return View();
+        }
+
+        public ActionResult Edit(Guid driverId, Guid authId)
+        {
+            Driver driver = Parser.GetDriver(Client.FindDriver(driverId));
+            Authorization auth = Parser.GetAuth(Client.FindAuth(authId));
+            DriverAuth driverAuth = new DriverAuth(auth, driver);
+            if (Client.EditDriverProfile(Parser.ParseAuth(auth), Parser.ParseDriver(driver)) == false)
+                ModelState.AddModelError("", "Данный логин уже занят");
+            else
+            {
+                Client.EditDriverProfile(Parser.ParseAuth(driverAuth.Auth), Parser.ParseDriver(driverAuth.Driver));
+            }
+
+            return View(driverAuth); 
         }
     }
 }
